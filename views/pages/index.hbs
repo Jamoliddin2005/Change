@@ -1,0 +1,229 @@
+<header>
+    <div class="row align-items-center justify-content-center">
+        <div class="col-lg-6 left-header">
+            {{#each header}}
+            <img src="/images/{{img}}" alt="" />
+            {{/each}}
+        </div>
+        <div class="col-lg-6 right-header">
+            {{#each headertext}}
+            <h1>{{header_text}} <span>{{header_span}}</span></h1>
+            <p>{{header_about}}</p>
+            {{/each}}
+            <div class="lessons">
+                <ul>
+                    {{#each courses}}
+                    <li><a href="/course/{{id}}">{{header_courses}}</a></li>
+                    {{/each}}
+                </ul>
+            </div>
+        </div>
+    </div>
+</header>
+
+
+
+<main>
+    <h1>Ta‘lim</h1>
+    <div class="education">
+        {{#each result}}
+        <div class="offline_lesson col-lg-7">
+            <div class="item">
+                <h4>{{lesson_name}}</h4>
+                <h6>{{about_the_lesson}}
+                </h6>
+            </div>
+            <div class="item-right">
+                <img src="/images/{{img}}" alt="" />
+            </div>
+        </div>
+        <div class="right-index">
+            <div class="online_lesson col-lg-7">
+                <div class="item-right">
+                    <img src="/images/{{img_right}}" alt="" />
+                </div>
+                <div class="item">
+                    <h4>{{lesson_name_right}}</h4>
+                    <h6>{{about_the_lesson_right}}</h6>
+                </div>
+            </div>
+        </div>
+        {{/each}}
+    </div>
+    <div class="benefits">
+        <div class="row align-items-center">
+            <div class="col-lg-5 benefit-left">
+                {{#each sectCenterLeft}}
+                <img src="/images/{{img}}" alt="" />
+                {{/each}}
+            </div>
+            <div class="col-lg-5 benefit-right">
+                {{#each sectCenterRight}}
+                <h1>{{name}}</h1>
+                <p>{{about}}</p>
+                <ul>
+                    <li><a href="/"><i class="far fa-check-circle"></i>
+                            {{ul_li_a_1}}</a></li>
+                    <li><a href="/"><i class="far fa-check-circle"></i>
+                            {{ul_li_a_2}}</a></li>
+                    <li><a href="/"><i class="far fa-check-circle"></i>
+                            {{ul_li_a_3}}</a></li>
+                </ul>
+                {{/each}}
+            </div>
+
+        </div>
+    </div>
+    <div class="direction">
+        <h1>Bizning yo‘nalishlar</h1>
+        <div class="row">
+            {{#each directions}}
+            <div class="col-lg-4-item course">
+                <div class="row justify-content-around align-items-center">
+                    <div class="col-lg-6">
+                        <h5>Kurs</h5>
+                        <h3>{{name}}</h3>
+                        <h4>{{month}} oy</h4>
+                        <h6>{{module}} ta modul</h6>
+                    </div>
+                    <div class="col-lg-5">
+                        <img src="/images/{{img}}" alt="" />
+                    </div>
+                </div>
+            </div>
+            {{/each}}
+        </div>
+    </div>
+    <div class="system_education">
+        <h1>TA'LIMGA TIZIMLI YONDASHUV</h1>
+        <div class="row justify-content-between">
+            {{#each system}}
+            <div class="col-lg-5-item course_system">
+                <div class="row align-items-center">
+                    <div class="col-lg-8">
+                        <h4>{{name}}</h4>
+                        <p>{{about}}</p>
+                    </div>
+                    <div class="col-lg-4">
+                        <img src="/images/{{img}}" alt="" />
+                    </div>
+                </div>
+            </div>
+            {{/each}}
+        </div>
+    </div>
+    <div class="certificate">
+        <div class="row align-items-center">
+            <div class="col-lg-4">
+                <div class="row">
+                    <div class="col-12">
+                        <div class="list-group" id="list-tab" role="tablist">
+                            <a class="list-group-item list-group-item-action active" id="list-home-list"
+                                data-bs-toggle="list" href="#home_active" role="tab" aria-controls="list-home">Home</a>
+                            {{#each listgroup}}
+                            <a class="list-group-item list-group-item-action" id="list-home-list" data-bs-toggle="list"
+                                href="#{{list_group}}" role="tab" aria-controls="list-home">{{list_group}}</a>
+                            {{/each}}
+                        </div>
+                    </div>
+                    <div class="col-12">
+                        <div class="tab-content" id="nav-tabContent">
+                            <div class="tab-pane fade show active" id="home_active" role="tabpanel"
+                                aria-labelledby="list-home-list">
+                                Kursni tamomlagan
+                                talabalarning o‘zlashtirish
+                                ko’rsatkichi e‘tiborga
+                                olingan holda sertifikatlar beriladi.
+                            </div>
+                            {{#each listgroup}}
+                            <div class="tab-pane fade show" id="{{list_group}}" role="tabpanel"
+                                aria-labelledby="list-home-list">{{tab_pane}}</div>
+                            {{/each}}
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <div class="col-lg-2">
+                {{#each imgAddMedal}}
+                <img src="/images/{{img}}" alt="" style="width: 100%;">
+                {{/each}}
+            </div>
+            <div class="col-lg-6">
+                {{#each medalimg}}
+                <img src="/images/{{img}}" alt="" style="width: 100%;">
+                {{/each}}
+            </div>
+        </div>
+    </div>
+    <div class="swiper mySwiper ">
+        <h1>Bizning mentorlarimiz</h1>
+        <div class="swiper-wrapper">
+            {{#each user}}
+            <div class="swiper-slide">
+                <img src="/images/{{img}}" alt="">
+                <div class="about">
+                    <h3>{{name}}</h3>
+                    <h4>{{course}}</h4>
+                    <ul>
+                        <li>
+                            <a href="{{instagram}}" target="_blank">
+                                <i class="fab fa-instagram"></i>
+                            </a>
+                        </li>
+                        <li class="ml-3">
+                            <a href="{{telegram}}" target="_blank">
+                                <i class="fab fa-telegram"></i>
+                            </a>
+                        </li>
+                        <li class="ml-3">
+                            <a href="{{linkedin}}" target="_blank">
+                                <i class="fab fa-linkedin-in"></i>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            {{/each}}
+        </div>
+        <div class="swiper-button-next"><i class="fas fa-chevron-right"></i></div>
+        <div class="swiper-button-prev"><i class="fas fa-chevron-left"></i></div>
+        <div class="swiper-pagination"></div>
+    </div>
+    <div class="partners">
+        <h1>Bizning hamkorlar</h1>
+        <div class="row justify-content-between">
+            {{#each partners}}
+            <div class="col-auto">
+                <a href="{{href}}" target="_blank">
+                    <img src="/images/{{img}}" alt="">
+                </a>
+            </div>
+            {{/each}}
+        </div>
+    </div>
+</main>
+
+
+
+
+
+<script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+<script>
+    var swiper = new Swiper(".mySwiper", {
+        slidesPerView: 4,
+        spaceBetween: 30,
+        loop: true,
+        pagination: {
+            el: ".swiper-pagination",
+            clickable: true,
+        },
+        navigation: {
+            nextEl: ".swiper-button-next",
+            prevEl: ".swiper-button-prev",
+        },
+        autoplay: {
+            delay: 3000,
+        },
+    });
+</script>

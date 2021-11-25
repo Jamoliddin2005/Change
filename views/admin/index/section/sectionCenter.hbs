@@ -1,0 +1,64 @@
+<div class="content">
+    <div class="container-fluid">
+        <div class="row justify-content-center">
+            <div class="col-md-6">
+                <div class="card card-primary">
+                    <form action="/admin/index/section-center-img" method="POST" enctype="multipart/form-data">
+                        <label for="section-center-left-img" class="mt-3">Image</label>
+                        <input type="file" class="form-control" id="section-center-left-img" name="img" required />
+                        <button class="btn btn-primary">Submit</button>
+                    </form>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="card card-primary">
+                    <form action="/admin/index/section-center-right" method="POST">
+                        <label for="header-right-course">Lesson type</label>
+                        <input type="text" class="form-control" id="header-right-course" name="name" required />
+                        <label for="section-center-about" class="mt-3">About</label>
+                        <input type="text" class="form-control" id="section-center-about" name="about" required />
+                        <label class="mt-3">Ul li a</label>
+                        <input type="text" class="form-control mt-1" name="ul_li_a_1" required />
+                        <input type="text" class="form-control mt-1" name="ul_li_a_2" required />
+                        <input type="text" class="form-control mt-1" name="ul_li_a_3" required />
+                        <button class="btn btn-primary">Submit</button>
+                    </form>
+                </div>
+            </div>
+            <div class="container">
+                <div class="col-lg-12 ">
+                    <div class="benefits">
+                        <div class="row align-items-center">
+                            <div class="col-lg-5 benefit-left">
+                                {{#each sect_center_left}}
+                                <img src="/images/{{img}}" alt="">
+                                <a href="/admin/index/sect_center_left/{{id}}" class="btn btn-warning">Delete</a>
+                                {{/each}}
+                            </div>
+                            <div class="col-lg-5 benefit-right">
+                                {{#each sect_center_right}}
+                                <h1>{{name}}</h1>
+                                <p>{{about}}</p>
+                                <ul>
+                                    <li><a href="/{{id}}"><i class="far fa-check-circle"></i>
+                                            {{ul_li_a_1}}</a></li>
+                                    <li><a href="/{{id}}"><i class="far fa-check-circle"></i>
+                                            {{ul_li_a_2}}</a></li>
+                                    <li><a href="/{{id}}"><i class="far fa-check-circle"></i>
+                                            {{ul_li_a_3}}</a></li>
+                                </ul>
+                                <a href="/admin/index/section_center_right/delete/{{id}}"
+                                    class="btn btn-default">Delete</a>
+                                <a href="/admin/index/section_center_right/update/{{id}}"
+                                    class="btn btn-default">Update</a>
+                                {{/each}}
+                            </div>
+
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

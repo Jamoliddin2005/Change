@@ -1,0 +1,43 @@
+<div class="content">
+    <div class="container-fluid">
+        <div class="row justify-content-center">
+            <div class="col-md-6">
+                <div class="card card-primary">
+                    <form action="/admin/index/section_direction" method="POST" enctype="multipart/form-data">
+                        <label for="direct_name">Direction name</label>
+                        <input type="text" class="form-control" id="direct_name" name="name" required />
+                        <label for="direct_month" class="mt-3">Direction month</label>
+                        <input type="number" class="form-control" id="direct_month" name="month" required />
+                        <label for="direct_module" class="mt-3">Direction module</label>
+                        <input type="number" class="form-control mt-1" id="direct_module" name="module" required />
+                        <label for="img" class="mt-3">Image</label>
+                        <input type="file" class="form-control mt-1" id="img" name="img" required />
+                        <button class="btn btn-primary">Submit</button>
+                    </form>
+                </div>
+            </div>
+            <div class="container">
+                <div class="direction">
+                    <div class="row">
+                        {{#each directions}}
+                        <div class="col-lg-4-item course">
+                            <div class="row justify-content-around align-items-center">
+                                <div class="col-lg-4">
+                                    <h5>Kurs</h5>
+                                    <h3>{{name}}</h3>
+                                    <h4>{{month}} oy</h4>
+                                    <h6>{{module}} ta modul</h6>
+                                    <a href="/admin/index/directions/delete/{{id}}" class="btn btn-default">Delete</a>
+                                </div>
+                                <div class="col-lg-5">
+                                    <img src="/images/{{img}}" alt="" />
+                                </div>
+                            </div>
+                        </div>
+                        {{/each}}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,58 @@
+<div class="content">
+    <div class="container-fluid">
+        <div class="row justify-content-center">
+            <div class="container">
+                {{#if addd}}
+                <div class="col-lg-6 m-auto">
+                    <form action="/admin/aboutUs/ThisIs/add/{{data.id}}" method="POST">
+                        <label for="Name">Name</label>
+                        <input type="text" class="form-control" name="name" id="Name" value="{{data.name}}" required>
+                        <label for="About" class="mt-2">About</label>
+                        <input type="text" class="form-control" name="about" id="About" value="{{data.about}}" required>
+                        <button class="btn btn-danger mt-3">Submit</button>
+                    </form>
+                </div>
+                {{else}}
+                <div class="section_top">
+                    <div class="row align-items-center">
+                        {{#each thisis}}
+                        <div class="col-lg-6">
+                            <h1>{{name}}</h1>
+                            <p>{{about}}</p>
+                            {{#if name}}
+                            <a href="/admin/aboutUs/ThisIs/update/{{id}}" class="btn btn-danger">Update Text</a>
+                            {{else}}
+                            <a href="/admin/aboutUs/section-thisIs/imageAdd" class="btn btn-danger">Add Text</a>
+                            {{/if}}
+                        </div>
+                        {{/each}}
+                        <div class="col-lg-6">
+
+                            {{#if thisisImg}}
+                            {{#each thisisImg}}
+                            <img src="/images/{{img}}" alt="">
+                            <a href="/admin/aboutUs/section-thisIs/deleteImg/{{id}}"
+                                class="btn btn-danger mt-3">Delete</a>
+                            {{/each}}
+                            {{else}}
+                            <a href="/admin/aboutUs/section-thisIs/imageAdd" class="btn btn-danger">Add Image</a>
+                            {{/if}}
+                        </div>
+                    </div>
+                </div>
+                {{/if}}
+
+                {{#if imageAdd}}
+                <div class="col-lg-6 m-auto">
+                    <form action="/admin/aboutUs/section-thisIs/imageAdd/{{data.id}}" method="POST"
+                        enctype="multipart/form-data">
+                        <label for="Image">Image</label>
+                        <input type="file" class="form-control" name="img" id="Image" required>
+                        <button class="btn btn-danger mt-3">Submit</button>
+                    </form>
+                </div>
+                {{/if}}
+            </div>
+        </div>
+    </div>
+</div>

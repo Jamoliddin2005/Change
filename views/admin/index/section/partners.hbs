@@ -1,0 +1,32 @@
+<div class="content">
+    <div class="container-fluid">
+        <div class="row justify-content-center">
+            <div class="col-md-6">
+                <div class="card card-primary">
+                    <form action="/admin/index/section-partners" method="POST" enctype="multipart/form-data">
+                        <label for="img">Partner Images</label>
+                        <input type="file" class="form-control" id="img" name="img" required />
+                        <label for="partner-link" class="mt-2">Partner Link</label>
+                        <input type="text" class="form-control" id="partner-link" name="href" required />
+                        <button class="btn btn-primary">Submit</button>
+                    </form>
+                </div>
+            </div>
+            <div class="container">
+                <div class="partners">
+                    <div class="row justify-content-between">
+                        {{#each partners}}
+                        <div class="col-auto">
+                            <a href="{{href}}" target="_blank">
+                                <img src="/images/{{img}}" alt="">
+                            </a>
+                            <a href="/admin/index/section-partner/delete/{{id}}"
+                                class="btn btn-warning d-block">Delete</a>
+                        </div>
+                        {{/each}}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

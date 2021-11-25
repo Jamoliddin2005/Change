@@ -1,0 +1,67 @@
+<div class="content">
+    <div class="container-fluid">
+        <div class="row justify-content-center">
+            {{#if add}}
+            <div class="col-md-6 mt-5">
+                <div class="card card-primary">
+                    <form action="/admin/index/section/list-group" method="POST">
+                        <label for="header-right-course">List name</label>
+                        <input type="text" class="form-control" id="header-right-course" name="list_group" required />
+                        <label for="header-right-course">Tab Pane</label>
+                        <input type="text" class="form-control" id="header-right-course" name="tab_pane" required />
+                        <button class="btn btn-primary">Submit</button>
+                    </form>
+                </div>
+            </div>
+            {{/if}}
+            {{#if update}}
+            <div class="col-md-6 mt-5">
+                <div class="card card-primary">
+                    <form action="/admin/index/section/list-group/update/{{data._id}}" method="POST">
+                        <label for="header-right-course">List name</label>
+                        <input type="text" class="form-control" id="header-right-course" name="list_group"
+                            value="{{data.list_group}}" required />
+                        <label for="header-right-course">Tab Pane</label>
+                        <input type="text" class="form-control" id="header-right-course" name="tab_pane"
+                            value="{{data.tab_pane}}" required />
+                        <button class="btn btn-primary">Submit</button>
+                    </form>
+                </div>
+            </div>
+            {{/if}}
+
+
+
+
+
+
+
+
+            
+            {{#if imgAdd}}
+            <div class="col-md-6 mt-5">
+                <div class="card card-primary">
+                    <form action="/admin/index/section-medal-img" method="POST" enctype="multipart/form-data">
+                        <label for="imageAdd">Image</label>
+                        <input type="file" class="form-control" id="imageAdd" name="img" required />
+
+                        <button class="btn btn-primary">Submit</button>
+                    </form>
+                </div>
+            </div>
+            {{/if}}
+            {{#if sertifikatImg}}
+            <div class="col-md-6 mt-5">
+                <div class="card card-primary">
+                    <form action="/admin/index/section-sertifikat-img" method="POST" enctype="multipart/form-data">
+                        <label for="imageAdd">Image</label>
+                        <input type="file" class="form-control" id="imageAdd" name="img" required />
+                        <button class="btn btn-primary">Submit</button>
+                    </form>
+                </div>
+            </div>
+            {{/if}}
+        </div>
+    </div>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
