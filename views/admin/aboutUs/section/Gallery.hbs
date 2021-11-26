@@ -1,0 +1,83 @@
+<div class="content">
+    <div class="container-fluid">
+        <div class="row justify-content-center">
+            <div class="container">
+                <div class="gallery">
+                    <h1>Bizning galereya</h1>
+                    <p>Bizning akademiyamiz bir nechta o’nlab kompaniyalar bilan hamkorlik aloqalari(memorandum)ni
+                        yo’lga qo’ygan.
+                    </p>
+                    <div class="swiper mySwiper">
+                        <div class="swiper-wrapper">
+                            {{#each gallery}}
+                            <div class="swiper-slide"><img src="/images/{{img}}" alt="">
+                                <a href="/admin/aboutUs/changeIt-gallery/delete/{{id}}"
+                                    class="btn btn-danger">Delete</a>
+                            </div>
+                            {{/each}}
+                        </div>
+                        <div class="swiper-button-next"></div>
+                        <div class="swiper-button-prev"></div>
+                    </div>
+                </div>
+                <a href="/admin/aboutUs/changeIt-gallery/Add" class="btn btn-danger mt-3">Add slider</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+
+<script>
+    var swiper = new Swiper(".mySwiper", {
+        slidesPerView: 2,
+        centeredSlides: true,
+        spaceBetween: 30,
+        pagination: {
+            el: ".swiper-pagination",
+            type: "fraction",
+        },
+        navigation: {
+            nextEl: ".swiper-button-next",
+            prevEl: ".swiper-button-prev",
+        },
+    });
+
+    var appendNumber = 4;
+    var prependNumber = 1;
+    document
+        .querySelector(".prepend-2-slides")
+        .addEventListener("click", function (e) {
+            e.preventDefault();
+            swiper.prependSlide([
+                '<div class="swiper-slide">Slide ' + --prependNumber + "</div>",
+                '<div class="swiper-slide">Slide ' + --prependNumber + "</div>",
+            ]);
+        });
+    document
+        .querySelector(".prepend-slide")
+        .addEventListener("click", function (e) {
+            e.preventDefault();
+            swiper.prependSlide(
+                '<div class="swiper-slide">Slide ' + --prependNumber + "</div>"
+            );
+        });
+    document
+        .querySelector(".append-slide")
+        .addEventListener("click", function (e) {
+            e.preventDefault();
+            swiper.appendSlide(
+                '<div class="swiper-slide">Slide ' + ++appendNumber + "</div>"
+            );
+        });
+    document
+        .querySelector(".append-2-slides")
+        .addEventListener("click", function (e) {
+            e.preventDefault();
+            swiper.appendSlide([
+                '<div class="swiper-slide">Slide ' + ++appendNumber + "</div>",
+                '<div class="swiper-slide">Slide ' + ++appendNumber + "</div>",
+            ]);
+        });
+</script>

@@ -679,7 +679,10 @@ footer ul li {
 }
 
 .section_top img {
-  width: 100%;
+  width: 450px;
+  height: 450px;
+  border-radius: 50%;
+  object-fit: cover;
 }
 
 .changeit_numbers h1 {
@@ -725,6 +728,7 @@ section .gallery h1 {
   line-height: 80px;
   color: #ffffff;
   margin-bottom: 40px;
+  margin-top: 30px;
 }
 
 section .gallery p {
@@ -945,4 +949,42 @@ section .gallery p {
   border-radius: 50%;
   object-fit: cover;
   background: #23265c;
+}
+
+
+
+
+
+
+.gallery .swiper-slide img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.gallery .swiper {
+  width: 100%;
+  height: 100%;
+  background: #23265c;
+  padding: 20px;
+  border-radius: 20px;
+}
+
+.gallery .swiper-slide {
+  text-align: center;
+  font-size: 18px;
+  background: #fff;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  -webkit-align-items: center;
+  align-items: center;
 }

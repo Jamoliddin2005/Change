@@ -1,109 +1,125 @@
 <header>
-    <div class="row header-row">
-        <div class="col-lg-6 aboutUs">
-            {{#each header}}
-            <img src="/images/{{img}}" alt="">
-            {{/each}}
-        </div>
-        <div class="col-lg-6">
-            {{#each headerRight}}
-            <h1>{{text}}</h1>
-                {{/each}}
-        </div>
+  <div class="row header-row">
+    <div class="col-lg-6 aboutUs">
+      {{#each header}}
+      <img src="/images/{{img}}" alt="">
+      {{/each}}
     </div>
+    <div class="col-lg-6">
+      {{#each headerRight}}
+      <h1>{{text}}</h1>
+      {{/each}}
+    </div>
+  </div>
 </header>
 
 <section>
-    <div class="section_top">
-        <div class="row align-items-center">
-            <div class="col-lg-6">
-                <h1>Root Academy
-                    bu ...</h1>
-                <p>Onlayn va onsite ta‘lim platformasi.
-                    Biz bozorning yetakchi mutaxassislarining
-                    kurslari va dasturlarini, o‘qitish, real loyihalar
-                    ustida ishlash, stajirovka va mamlakatning
-                    eng yirik kompaniyalarida ishga joylashish
-                    bo'yicha yondashuvlarni qo'lladik.</p>
-            </div>
-            <div class="col-lg-6">
-                <img src="/images/root_a 3.png" alt="">
-            </div>
-        </div>
+  <div class="section_top">
+    <div class="row align-items-center">
+      {{#each thisIs}}
+      <div class="col-lg-6">
+        <h1>{{name}}</h1>
+        <p>{{about}}</p>
+      </div>
+      {{/each}}
+      {{#each thisImg}}
+      <div class="col-lg-6">
+        <img src="/images/{{img}}" alt="">
+      </div>
+      {{/each}}
     </div>
-    <div class="changeit_numbers">
+  </div>
+  <div class="changeit_numbers">
+    <div class="row">
+      {{#each TextNumbers}}
+      <div class="col-lg-6">
+        <h1>{{text}}</h1>
+        <p>{{about}}</p>
+      </div>
+      {{/each}}
+      <div class="col-lg-6">
         <div class="row">
-            <div class="col-lg-6">
-                <h1>Root academy
-                    raqamlari</h1>
-                <p>Bizning akademiyamiz bir nechta o’nlab
-                    kompaniyalar bilan hamkorlik
-                    aloqalari(memorandum)ni yo’lga qo’ygan.</p>
+          {{#each numbersBlock}}
+          <div class="col-lg-6">
+            <div class="numbers">
+              <h1>{{number}}</h1>
+              <p>{{about}}</p>
             </div>
-            <div class="col-lg-6">
-                <div class="row">
-                    <div class="col-lg-6">
-                        <div class="numbers">
-                            <h1>88+</h1>
-                            <p>Barcha kurslarimiz soni</p>
-                        </div>
-                    </div>
-                    <div class="col-lg-6">
-                        <div class="numbers">
-                            <h1>28+</h1>
-                            <p>Mentor va assistentlarimiz soni</p>
-                        </div>
-                    </div>
-                    <div class="col-lg-6">
-                        <div class="numbers">
-                            <h1>200+</h1>
-                            <p>Umumiy talabalarimiz soni</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
+          </div>
+          {{/each}}
         </div>
+      </div>
     </div>
-    <div class="gallery">
-        <h1>Bizning galereya</h1>
-        <p>Bizning akademiyamiz bir nechta o’nlab kompaniyalar bilan hamkorlik aloqalari(memorandum)ni yo’lga qo’ygan.
-        </p>
-        <div class="swiper mySwiper">
-            <div class="swiper-wrapper">
-                <div class="swiper-slide">
-                    <img src="https://changeit.uz/images/open_lessons_bg.jpg" alt="">
-                </div>
-                <div class="swiper-slide">
-                    <img src="https://changeit.uz/images/open_lessons_bg.jpg" alt="">
-                </div>
-                <div class="swiper-slide">
-                    <img src="https://changeit.uz/images/open_lessons_bg.jpg" alt="">
-                </div>
-                <div class="swiper-slide">
-                    <img src="https://changeit.uz/images/open_lessons_bg.jpg" alt="">
-                </div>
-                <div class="swiper-slide">
-                    <img src="https://changeit.uz/images/open_lessons_bg.jpg" alt="">
-                </div>
-            </div>
-            <div class="swiper-button-next"></div>
-            <div class="swiper-button-prev"></div>
-            <div class="swiper-pagination"></div>
+  </div>
+  <div class="gallery">
+    <h1>Bizning galereya</h1>
+    <p>Bizning akademiyamiz bir nechta o’nlab kompaniyalar bilan hamkorlik aloqalari(memorandum)ni
+      yo’lga qo’ygan.
+    </p>
+    <div class="swiper mySwiper">
+      <div class="swiper-wrapper">
+        {{#each gallery}}
+        <div class="swiper-slide"><img src="/images/{{img}}" alt="">
         </div>
+        {{/each}}
+      </div>
+      <div class="swiper-button-next"></div>
+      <div class="swiper-button-prev"></div>
     </div>
+  </div>
 </section>
 
 <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
 
 <script>
-    var swiper = new Swiper(".mySwiper", {
-        pagination: {
-            el: ".swiper-pagination",
-            type: "fraction",
-        },
-        navigation: {
-            nextEl: ".swiper-button-next",
-            prevEl: ".swiper-button-prev",
-        },
+  var swiper = new Swiper(".mySwiper", {
+    slidesPerView: 2,
+    centeredSlides: true,
+    spaceBetween: 30,
+    pagination: {
+      el: ".swiper-pagination",
+      type: "fraction",
+    },
+    navigation: {
+      nextEl: ".swiper-button-next",
+      prevEl: ".swiper-button-prev",
+    },
+  });
+
+  var appendNumber = 4;
+  var prependNumber = 1;
+  document
+    .querySelector(".prepend-2-slides")
+    .addEventListener("click", function (e) {
+      e.preventDefault();
+      swiper.prependSlide([
+        '<div class="swiper-slide">Slide ' + --prependNumber + "</div>",
+        '<div class="swiper-slide">Slide ' + --prependNumber + "</div>",
+      ]);
+    });
+  document
+    .querySelector(".prepend-slide")
+    .addEventListener("click", function (e) {
+      e.preventDefault();
+      swiper.prependSlide(
+        '<div class="swiper-slide">Slide ' + --prependNumber + "</div>"
+      );
+    });
+  document
+    .querySelector(".append-slide")
+    .addEventListener("click", function (e) {
+      e.preventDefault();
+      swiper.appendSlide(
+        '<div class="swiper-slide">Slide ' + ++appendNumber + "</div>"
+      );
+    });
+  document
+    .querySelector(".append-2-slides")
+    .addEventListener("click", function (e) {
+      e.preventDefault();
+      swiper.appendSlide([
+        '<div class="swiper-slide">Slide ' + ++appendNumber + "</div>",
+        '<div class="swiper-slide">Slide ' + ++appendNumber + "</div>",
+      ]);
     });
 </script>

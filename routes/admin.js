@@ -23,6 +23,9 @@ const AboutUsHeaderLeft = require('../models/AboutUs/Header/headerLeft')
 const AboutUsHeaderRight = require('../models/AboutUs/Header/HeaderRight')
 const ThisIs = require('../models/AboutUs/Section/ThisIs')
 const ThisIsImg = require('../models/AboutUs/Section/ThisIsImg')
+const ChangeItNumbers = require('../models/AboutUs/Section/ChangeNumbers')
+const ChangeItNumbersBlock = require('../models/AboutUs/Section/ChangeNumberBlock')
+const GalleryAdd = require('../models/AboutUs/Section/GalleryAdd')
 
 router.get("/", (req, res, next) => {
     res.render("admin/index", {
@@ -674,4 +677,110 @@ router.get('/aboutUs/section-thisIs/deleteImg/:id', async (req, res) => {
 })
 
 
+router.get('/aboutUs/changeIt-numbers', async (req, res) => {
+    const findText = await ChangeItNumbers.find()
+    const block = await ChangeItNumbersBlock.find()
+    res.render('admin/aboutUs/section/ChangeNumbers', {
+        title: "ChangeIT-Academy",
+        layout: 'main',
+        findText,
+        block
+    })
+})
+
+router.get('/aboutUs/changeNumbers/AddText', async (req, res) => {
+    res.render('admin/aboutUs/section/ChangeNumbersEdit', {
+        title: "ChangeIT-Academy",
+        layout: 'main',
+        addText: true
+    })
+})
+
+router.post('/aboutUs/changeItNumbers', async (req, res) => {
+    const db = new ChangeItNumbers({
+        text: req.body.text,
+        about: req.body.about,
+
+    })
+    await db.save()
+    res.redirect('/admin/aboutUs/changeIt-numbers')
+})
+
+router.get('/aboutUs/changeNumbers/AddText/edit/:id', async (req, res) => {
+    const findText = await ChangeItNumbers.findOne()
+    res.render('admin/aboutUs/section/ChangeNumbersEdit', {
+        title: "ChangeIT-Academy",
+        layout: 'main',
+        update: true,
+        findText
+    })
+})
+
+router.post('/aboutUs/changeItNumbers/:id', async (req, res) => {
+    const Update = {}
+    Update.text = req.body.text,
+        Update.about = req.body.about
+
+    await ChangeItNumbers.findByIdAndUpdate(req.params.id, Update)
+    res.redirect('/admin/aboutUs/changeIt-numbers')
+})
+
+router.get('/aboutUs/changeNumbers/AddText/delete/:id', async (req, res) => {
+    await ChangeItNumbers.findByIdAndDelete(req.params.id)
+    res.redirect('/admin/aboutUs/changeIt-numbers')
+})
+
+router.get('/aboutUs/changeNumbers-block', async (req, res) => {
+    res.render('admin/aboutUs/section/ChangeNumbersEdit', {
+        title: "ChangeIT-Academy",
+        layout: 'main',
+        NumberAdd: true,
+    })
+})
+
+router.post('/aboutUs/AddNumber', async (req, res) => {
+    const db = new ChangeItNumbersBlock({
+        number: req.body.number,
+        about: req.body.about,
+    })
+    await db.save()
+    res.redirect('/admin/aboutUs/changeIt-numbers')
+})
+
+router.get('/aboutUs/blockEdit/:id', async (req, res) => {
+    await ChangeItNumbersBlock.findByIdAndDelete(req.params.id)
+    res.redirect('/admin/aboutUs/changeIt-numbers')
+})
+
+
+router.get('/aboutUs/changeIt-gallery', async (req, res) => {
+    const gallery = await GalleryAdd.find()
+    res.render('admin/aboutUs/section/Gallery', {
+        title: "ChangeIT-Academy",
+        layout: 'main',
+        gallery
+    })
+})
+
+router.get('/aboutUs/changeIt-gallery/Add', async (req, res) => {
+    res.render('admin/aboutUs/section/GalleryAdd', {
+        title: "ChangeIT-Academy",
+        layout: 'main',
+    })
+})
+
+router.post('/aboutUs/changeIt-gallery/Add', fileUpload.single('img'), async (req, res) => {
+    const db = new GalleryAdd({
+        img: req.file.filename
+    })
+    await db.save()
+    res.redirect('/admin/aboutUs/changeIt-gallery')
+})
+
+router.get('/aboutUs/changeIt-gallery/delete/:id', async (req, res) => {
+    const { img } = await GalleryAdd.findById(req.params.id);
+    toDelete(img);
+    await GalleryAdd.findByIdAndDelete(req.params.id)
+    res.redirect('/admin/aboutUs/changeIt-gallery')
+})
 module.exports = router;

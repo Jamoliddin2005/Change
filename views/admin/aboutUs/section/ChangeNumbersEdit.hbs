@@ -1,0 +1,45 @@
+<div class="content">
+    <div class="container-fluid">
+        <div class="row justify-content-center">
+            <div class="container">
+                {{#if addText}}
+                <div class="col-lg-6 bg-blue m-auto">
+                    <form action="/admin/aboutUs/changeItNumbers" method="POST" class="p-3">
+                        <label for="text" class="mt-2">Text Name</label>
+                        <input type="text" name="text" id="text" class="form-control" required>
+                        <label for="about" class="mt-2">Text About</label>
+                        <input type="text" name="about" id="about" class="form-control" required>
+                        <button class="btn btn-danger mt-3">Submit</button>
+                    </form>
+                </div>
+                {{/if}}
+                {{#if update}}
+                <div class="col-lg-6 bg-blue m-auto">
+                    <form action="/admin/aboutUs/changeItNumbers/{{findText.id}}" method="POST" class="p-3">
+                        <label for="text" class="mt-2">Text Name</label>
+                        <input type="text" name="text" id="text" class="form-control" value="{{findText.text}}"
+                            required>
+                        <label for="about" class="mt-2">Text About</label>
+                        <input type="text" name="about" id="about" class="form-control" value="{{findText.about}}"
+                            required>
+                        <button class="btn btn-danger mt-3">Submit</button>
+                    </form>
+                </div>
+                {{/if}}
+
+                {{#if NumberAdd}}
+                <div class="col-lg-6 bg-blue m-auto">
+                    <form action="/admin/aboutUs/AddNumber" method="POST" class="p-3">
+                        <label for="number" class="mt-2">Number</label>
+                        <input type="text" name="number" id="number" class="form-control" required>
+                        <label for="about" class="mt-2">About</label>
+                        <input type="text" name="about" id="about" class="form-control" required>
+                        <button class="btn btn-danger mt-3">Submit</button>
+                    </form>
+                </div>
+                {{/if}}
+
+            </div>
+        </div>
+    </div>
+</div>

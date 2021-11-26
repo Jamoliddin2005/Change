@@ -29,7 +29,7 @@ app.engine('hbs', exhbs({
 
 require('./helper/db')()
 
-app.use(logger('dev'));
+// app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());

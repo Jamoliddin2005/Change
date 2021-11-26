@@ -1,0 +1,42 @@
+<div class="content">
+    <div class="container-fluid">
+        <div class="row justify-content-center">
+            <div class="container">
+                <div class="changeit_numbers">
+                    <div class="row">
+                        {{#if findText}}
+                        {{#each findText}}
+                        <div class="col-lg-6">
+                            <h1>{{text}}</h1>
+                            <p>{{about}}</p>
+                            <a href="/admin/aboutUs/changeNumbers/AddText/edit/{{id}}" class="btn btn-danger">Edit
+                                Text</a>
+                            <a href="/admin/aboutUs/changeNumbers/AddText/delete/{{id}}" class="btn btn-danger">Delete
+                                Text</a>
+                        </div>
+                        {{/each}}
+                        {{else}}
+                        <div class="col-lg-6">
+                            <a href="/admin/aboutUs/changeNumbers/AddText" class="btn btn-danger">Add Text</a>
+                        </div>
+                        {{/if}}
+                        <div class="col-lg-6">
+                            <a href="/admin/aboutUs/changeNumbers-block" class="btn btn-danger mb-3">Add block</a>
+                            <div class="row">
+                                {{#each block}}
+                                <div class="col-lg-6">
+                                    <div class="numbers">
+                                        <h1>{{number}}</h1>
+                                        <p>{{about}}</p>
+                                        <a href="/admin/aboutUs/blockEdit/{{id}}" class="btn btn-danger">Delete</a>
+                                    </div>
+                                </div>
+                                {{/each}}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
