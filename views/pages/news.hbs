@@ -1,12 +1,14 @@
 <header class="news-header">
     <div class="row align-items-center justify-content-center">
         <div class="col-lg-5 header-left">
-            <h1>Root academy
-                yangiliklari va
-                maqolalari</h1>
+            {{#each headerLeft}}
+            <h1>{{text}}</h1>
+            {{/each}}
         </div>
         <div class="col-lg-5 header-right">
-            <img src="/images/news.png" alt="">
+            {{#each headerRight}}
+            <img src="/images/{{img}}" alt="">
+            {{/each}}
         </div>
     </div>
 </header>

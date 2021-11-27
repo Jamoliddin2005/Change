@@ -51,75 +51,61 @@
       </div>
     </div>
   </div>
+
+
   <div class="gallery">
-    <h1>Bizning galereya</h1>
-    <p>Bizning akademiyamiz bir nechta o’nlab kompaniyalar bilan hamkorlik aloqalari(memorandum)ni
-      yo’lga qo’ygan.
-    </p>
-    <div class="swiper mySwiper">
-      <div class="swiper-wrapper">
-        {{#each gallery}}
-        <div class="swiper-slide"><img src="/images/{{img}}" alt="">
+    <h2>Bizning galereya</h2>
+    <ul class="main__slider main__slider--countries">
+      {{#each gallery}}
+      <li class="main__item">
+        <div class="main__image" style="background-image:url('/images/{{img}}')">
         </div>
-        {{/each}}
-      </div>
-      <div class="swiper-button-next"></div>
-      <div class="swiper-button-prev"></div>
+        <h1 class="main__title">{{text}}</h1>
+      </li>
+      {{/each}}
+    </ul>
+
+    <div class="main__options">
+      <a class="main__option countries" href="#slider">ChangeIt-Academy</a>
+      {{!-- <a class="main__option sports" href="#slider">Sports</a> --}}
     </div>
   </div>
+
 </section>
-
-<script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
-
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"
+  integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"></script>
 <script>
-  var swiper = new Swiper(".mySwiper", {
-    slidesPerView: 2,
-    centeredSlides: true,
-    spaceBetween: 30,
-    pagination: {
-      el: ".swiper-pagination",
-      type: "fraction",
-    },
-    navigation: {
-      nextEl: ".swiper-button-next",
-      prevEl: ".swiper-button-prev",
-    },
+  const countries = document.querySelector(".countries"),
+    sports = document.querySelector(".sports"),
+    countriesSlider = document.querySelector(".main__slider--countries"),
+    sportsSlider = document.querySelector(".main__slider--sports"),
+    main = document.querySelector(".main");
+
+  countries.addEventListener("click", function () {
+    countriesSlider.style.visibility = "visible";
+    sportsSlider.style.visibility = "hidden";
+    main.classList.remove("main--sports");
+    this.classList.add("active");
+    sports.classList.remove("active");
   });
 
-  var appendNumber = 4;
-  var prependNumber = 1;
-  document
-    .querySelector(".prepend-2-slides")
-    .addEventListener("click", function (e) {
-      e.preventDefault();
-      swiper.prependSlide([
-        '<div class="swiper-slide">Slide ' + --prependNumber + "</div>",
-        '<div class="swiper-slide">Slide ' + --prependNumber + "</div>",
-      ]);
-    });
-  document
-    .querySelector(".prepend-slide")
-    .addEventListener("click", function (e) {
-      e.preventDefault();
-      swiper.prependSlide(
-        '<div class="swiper-slide">Slide ' + --prependNumber + "</div>"
-      );
-    });
-  document
-    .querySelector(".append-slide")
-    .addEventListener("click", function (e) {
-      e.preventDefault();
-      swiper.appendSlide(
-        '<div class="swiper-slide">Slide ' + ++appendNumber + "</div>"
-      );
-    });
-  document
-    .querySelector(".append-2-slides")
-    .addEventListener("click", function (e) {
-      e.preventDefault();
-      swiper.appendSlide([
-        '<div class="swiper-slide">Slide ' + ++appendNumber + "</div>",
-        '<div class="swiper-slide">Slide ' + ++appendNumber + "</div>",
-      ]);
-    });
+  $(".main__slider").slick({
+    centerMode: true,
+    infinite: false,
+    slidesToShow: 3,
+    slidesToScroll: 1,
+    arrows: false,
+    initialSlide: 2,
+    responsive: [
+      {
+        breakpoint: 1000,
+        settings: {
+          slidesToShow: 1,
+          fade: true
+        }
+      }
+    ]
+  });
+
 </script>

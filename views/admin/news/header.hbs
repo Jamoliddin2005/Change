@@ -1,0 +1,28 @@
+<div class="container">
+    <header class="news-header">
+        <div class="row align-items-center justify-content-center">
+            <div class="col-lg-5 header-left">
+
+                {{#if left}}
+                {{#each left}}
+                <h1>{{text}}</h1>
+                <a href="/admin/news/header/left/edit/{{id}}" class="btn btn-danger mt-4">Edit Text</a>
+                <a href="/admin/news/header/left/delete/{{id}}" class="btn btn-danger mt-4">Delete Text</a>
+                {{/each}}
+                {{else}}
+                <a href="/admin/news/header/left/add" class="btn btn-danger">Add Text</a>
+                {{/if}}
+            </div>
+            <div class="col-lg-5 header-right">
+                {{#if right}}
+                {{#each right}}
+                <img src="/images/{{img}}" alt="">
+                <a href="/admin/news/header/right/delete/{{id}}" class="btn btn-danger mt-3">Delete Image</a>
+                {{/each}}
+                {{else}}
+                <a href="/admin/news/header/right/add" class="btn btn-danger">Add Image</a>
+                {{/if}}
+            </div>
+        </div>
+    </header>
+</div>

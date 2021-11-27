@@ -1,0 +1,27 @@
+<div class="container">
+    <header class="news-header">
+        <div class="col-lg-6 m-auto bg-gradient-blue p-3">
+            {{#if add}}
+            <form action="/admin/news/headerLeft" method="POST">
+                <label for="Text">Text</label>
+                <input type="text" id="Text" name="text" class="form-control">
+                <button class="btn btn-danger mt-3">Submit</button>
+            </form>
+            {{/if}}
+            {{#if edit}}
+            <form action="/admin/news/headerLeft/edit/{{editText.id}}" method="POST">
+                <label for="Text">Text</label>
+                <input type="text" id="Text" name="text" class="form-control" value="{{editText.text}}">
+                <button class="btn btn-danger mt-3">Submit</button>
+            </form>
+            {{/if}}
+            {{#if image}}
+            <form action="/admin/news/headerRight/add" method="POST" enctype="multipart/form-data">
+                <label for="Image">Image</label>
+                <input type="file" id="Image" name="img" class="form-control">
+                <button class="btn btn-danger mt-3">Submit</button>
+            </form>
+            {{/if}}
+        </div>
+    </header>
+</div>
