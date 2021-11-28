@@ -1,13 +1,29 @@
 <div class="container">
+    {{#if add}}
     <div class="col-lg-6 m-auto p-5 bg-gradient-blue">
         <form action="/admin/news/news/add" method="POST" enctype="multipart/form-data">
             <label for="title">Title</label>
-            <input type="text" name="title" class="form-control" id="title">
+            <input type="text" name="title" class="form-control" id="title" required>
             <label for="more">More</label>
-            <textarea name="more" id="more" class="form-control" cols="30" rows="10"></textarea>
+            <textarea name="more" id="more" class="form-control" cols="30" rows="10" required></textarea>
             <label for="img">Image</label>
-            <input type="file" name="img" class="form-control" id="img">
+            <input type="file" name="img" class="form-control" id="img" required>
             <button class="btn btn-danger mt-4">Submit</button>
         </form>
     </div>
+    {{/if}}
+    {{#if update}}
+    <div class="col-lg-6 m-auto p-5 bg-gradient-blue">
+        <form action="/admin/news/news/update/{{NewsUpdate.id}}" method="POST" enctype="multipart/form-data">
+            <label for="title">Title</label>
+            <input type="text" name="title" class="form-control" id="title" value="{{NewsUpdate.title}}" required>
+            <label for="more">More</label>
+            <textarea name="more" id="more" class="form-control" cols="30" rows="10"
+                required>{{NewsUpdate.more}}</textarea>
+            <label for="img">Image</label>
+            <input type="file" name="img" class="form-control" id="img" required>
+            <button class="btn btn-danger mt-4">Submit</button>
+        </form>
+    </div>
+    {{/if}}
 </div>

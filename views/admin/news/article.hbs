@@ -1,0 +1,24 @@
+<div class="container">
+    <div class="news-section-center">
+        <h1>Yangilik va maqolalar</h1>
+        <a href="/admin/news/article/add" class="btn btn-danger mb-3">Add Article</a>
+        <div class="row aaaaaaaa">
+            {{#each articleFind}}
+            <div class="col-lg-4">
+                <div class="card"
+                    style="width: 23rem;  border-top-left-radius: 15px;  border-top-right-radius: 15px; overflow: hidden;">
+                    <img src="/images/{{img}}" class="card-img-top" alt="..." style="height:250px; object-fit: cover;">
+                    <div class="card-body">
+                        <h5 class="card-title">{{title}}</h5>
+                        <p class="card-text">{{about}}</p>
+                        <h6>{{data}}</h6>
+                    </div>
+                </div>
+            </div>
+            {{/each}}
+        </div>
+        <div class="col-12 text-center">
+            <button class="again">Yana</button>
+        </div>
+    </div>
+</div>

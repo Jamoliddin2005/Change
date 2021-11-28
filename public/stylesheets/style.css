@@ -772,8 +772,14 @@ section .gallery p {
     width: 40px;
     height: 40px;
     border-radius: 50%;
-    object-fit: cover;
+    object-fit: contain;
     margin-right: 20px;
+    background-color: #171836;
+}
+
+.more_top .user-img {
+    display: flex;
+    align-items: center;
 }
 
 .more_top .left {
@@ -804,6 +810,18 @@ section .gallery p {
 
 .block .active-img {
     width: 100%;
+    height: 500px;
+    object-fit: cover;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+}
+
+.newsClick img {
+    width: 100%;
+    height: 90px;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    object-fit: cover;
 }
 
 .block .more {
@@ -855,6 +873,7 @@ section .gallery p {
 }
 
 .card-right {
+    cursor: pointer;
     align-items: center;
 }
 
@@ -1094,7 +1113,7 @@ section .gallery p {
     left: 50%;
     transform: translate(-50%, -50%);
     font-size: 50px;
-    font-variation-settings: "wght" 200;
+    font-variation-settings: "wght"200;
     animation: shrink 0.5s;
     animation-fill-mode: forwards;
     cursor: grab;
@@ -1122,12 +1141,12 @@ section .gallery p {
     right: 50px;
     font-size: 14px;
     letter-spacing: 0.02em;
-    font-variation-settings: "wght" 200;
+    font-variation-settings: "wght"200;
 }
 
 .main__credit a {
     text-decoration: none;
-    font-variation-settings: "wght" 650;
+    font-variation-settings: "wght"650;
 }
 
 .main__info {
@@ -1167,22 +1186,24 @@ section .gallery p {
 
 @keyframes grow {
     0% {
-        font-variation-settings: "wght" 200;
+        font-variation-settings: "wght"200;
         font-size: 50px;
     }
+
     100% {
-        font-variation-settings: "wght" 650;
+        font-variation-settings: "wght"650;
         font-size: 125px;
     }
 }
 
 @keyframes shrink {
     0% {
-        font-variation-settings: "wght" 650;
+        font-variation-settings: "wght"650;
         font-size: 125px;
     }
+
     100% {
-        font-variation-settings: "wght" 200;
+        font-variation-settings: "wght"200;
         font-size: 50px;
     }
 }
@@ -1194,38 +1215,46 @@ section .gallery p {
     .main__image {
         height: 350px;
     }
+
     .main__info {
         top: 20px;
         right: 20px;
     }
+
     .main__item.slick-slide {
         margin: 0 20px;
     }
+
     .main__credit {
         bottom: 25px;
         right: 25px;
     }
+
     .main__options {
         bottom: 25px;
         left: 25px;
     }
+
     @keyframes grow {
         0% {
-            font-variation-settings: "wght" 200;
+            font-variation-settings: "wght"200;
             font-size: 65px;
         }
+
         100% {
-            font-variation-settings: "wght" 650;
+            font-variation-settings: "wght"650;
             font-size: 65px;
         }
     }
+
     @keyframes shrink {
         0% {
-            font-variation-settings: "wght" 650;
+            font-variation-settings: "wght"650;
             font-size: 65px;
         }
+
         100% {
-            font-variation-settings: "wght" 200;
+            font-variation-settings: "wght"200;
             font-size: 65px;
         }
     }

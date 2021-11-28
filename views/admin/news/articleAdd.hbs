@@ -1,0 +1,13 @@
+<div class="container">
+    <div class="col-lg-6 m-auto bg-gradient-gray">
+        <form action="/admin/news/article/add" method="POST" enctype="multipart/form-data" class="p-3">
+            <label for="title" class="label-control">Title</label>
+            <input type="text" name="title" id="title" class="form-control" required>
+            <label for="about" class="label-control mt-2">About</label>
+            <input type="text" name="about" id="about" class="form-control" required>
+            <label for="img" class="label-control mt-2">Image</label>
+            <input type="file" name="img" id="img" class="form-control" required>
+            <button class="btn btn-default mt-3">Submit</button>
+        </form>
+    </div>
+</div>
