@@ -3,11 +3,13 @@ const express = require('express');
 const exhbs = require('express-handlebars')
 const path = require('path');
 const cookieParser = require('cookie-parser');
+const session = require('express-session')
 
 const indexRouter = require('./routes/index');
 const adminRouter = require('./routes/admin');
 var aboutUsRouter = require('./routes/aboutus');
 var newsRouter = require('./routes/news');
+const keys = require('./keys')
 const app = express();
 
 // view engine setup
@@ -35,6 +37,12 @@ app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
+app.use(session({
+    secret: keys.SESSION_SECRET,
+    resave: false,
+    saveUninitialized: false,
+}))
+
 app.use('/admin', express.static(path.join(__dirname, 'public')))
 app.use('/admin:any', express.static(path.join(__dirname, 'public')))
 
@@ -51,7 +59,7 @@ app.use('/news', newsRouter)
 // });
 
 // error handler
-app.use(function (err, req, res, next) {
+app.use(function(err, req, res, next) {
     // set locals, only providing error in development
     res.locals.message = err.message;
     res.locals.error = req.app.get('env') === 'development' ? err : {};

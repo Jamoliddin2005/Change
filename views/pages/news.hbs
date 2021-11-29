@@ -64,91 +64,43 @@
 
     <div class="news-section-center">
         <h1>Yangilik va maqolalar</h1>
-        <div class="row">
-            <div class="col-lg-4">
-                <div class="card" style="width: 23rem;">
-                    <img src="/images/root.png" class="card-img-top" alt="...">
+        <div class="row news-row">
+            {{#each articleFind}}
+            <div class="col-lg-4 block-news">
+                <div class="card"
+                    style="width: 23rem;  border-top-left-radius: 7px;  border-top-right-radius: 7px; overflow: hidden;">
+                    <img src="/images/{{img}}" class="card-img-top" alt="..." style="height:250px; object-fit: cover;">
                     <div class="card-body">
-                        <h5 class="card-title">ROOT academy asini tashkil topishi
-                            haqida qisqacha ma‘lumot...</h5>
-                        <p class="card-text">Tajribali guruh rahbari Xsollaning ishdan
-                            bo'shatilishiga asoslangan dasturchi kasbi
-                            haqida insho yozdi. Ichkarida: ishlab...</p>
-                        <h6>16 mart 2021</h6>
+                        <h5 class="card-title">{{title}}</h5>
+                        <p class="card-text">{{about}}</p>
+                        <h6>{{data}}</h6>
                     </div>
                 </div>
             </div>
-            <div class="col-lg-4">
-                <div class="card" style="width: 23rem;">
-                    <img src="/images/root.png" class="card-img-top" alt="...">
-                    <div class="card-body">
-                        <h5 class="card-title">ROOT academy asini tashkil topishi
-                            haqida qisqacha ma‘lumot...</h5>
-                        <p class="card-text">Tajribali guruh rahbari Xsollaning ishdan
-                            bo'shatilishiga asoslangan dasturchi kasbi
-                            haqida insho yozdi. Ichkarida: ishlab...</p>
-                        <h6>16 mart 2021</h6>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-4">
-                <div class="card" style="width: 23rem;">
-                    <img src="/images/root.png" class="card-img-top" alt="...">
-                    <div class="card-body">
-                        <h5 class="card-title">ROOT academy asini tashkil topishi
-                            haqida qisqacha ma‘lumot...</h5>
-                        <p class="card-text">Tajribali guruh rahbari Xsollaning ishdan
-                            bo'shatilishiga asoslangan dasturchi kasbi
-                            haqida insho yozdi. Ichkarida: ishlab...</p>
-                        <h6>16 mart 2021</h6>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-4">
-                <div class="card" style="width: 23rem;">
-                    <img src="/images/root.png" class="card-img-top" alt="...">
-                    <div class="card-body">
-                        <h5 class="card-title">ROOT academy asini tashkil topishi
-                            haqida qisqacha ma‘lumot...</h5>
-                        <p class="card-text">Tajribali guruh rahbari Xsollaning ishdan
-                            bo'shatilishiga asoslangan dasturchi kasbi
-                            haqida insho yozdi. Ichkarida: ishlab...</p>
-                        <h6>16 mart 2021</h6>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-4">
-                <div class="card" style="width: 23rem;">
-                    <img src="/images/root.png" class="card-img-top" alt="...">
-                    <div class="card-body">
-                        <h5 class="card-title">ROOT academy asini tashkil topishi
-                            haqida qisqacha ma‘lumot...</h5>
-                        <p class="card-text">Tajribali guruh rahbari Xsollaning ishdan
-                            bo'shatilishiga asoslangan dasturchi kasbi
-                            haqida insho yozdi. Ichkarida: ishlab...</p>
-                        <h6>16 mart 2021</h6>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-4">
-                <div class="card" style="width: 23rem;">
-                    <img src="/images/root.png" class="card-img-top" alt="...">
-                    <div class="card-body">
-                        <h5 class="card-title">ROOT academy asini tashkil topishi
-                            haqida qisqacha ma‘lumot...</h5>
-                        <p class="card-text">Tajribali guruh rahbari Xsollaning ishdan
-                            bo'shatilishiga asoslangan dasturchi kasbi
-                            haqida insho yozdi. Ichkarida: ishlab...</p>
-                        <h6>16 mart 2021</h6>
-                    </div>
-                </div>
-            </div>
+            {{/each}}
         </div>
         <div class="col-12 text-center">
-            <button class="again">Yana</button>
+            <button type="button" class="again load-more">Yana</button>
         </div>
     </div>
 </section>
 <script src="/plugins/jquery/jquery.min.js"></script>
+<script>
 
+    var wrapper = document.querySelectorAll('.news-row .block-news')
+    var btn = document.querySelector('.load-more')
+    var currentimg = 3
+    btn.addEventListener('click', function (e) {
+        for (var i = currentimg; i < currentimg + 3; i++) {
+            if (wrapper[i]) {
+                wrapper[i].style.display = "block"
+            }
+            if (currentimg > wrapper.length - 3) {
+                btn.style.display = "none"
+                e.preventDefault()
+            }
+        }
+        currentimg += 3
+    })
+</script>
 <script src="/scripts/app.js"></script>

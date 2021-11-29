@@ -1,5 +1,5 @@
-window.addEventListener('load', function (e) {
-    $('.newsClick').on('click', async function (e) {
+window.addEventListener('load', function(e) {
+    $('.newsClick').on('click', async function(e) {
         const data = await fetch('/admin/all/news/content').then(res => res.json())
         const topNew = data.find(news => {
             return news._id.toString() === this.dataset.id.toString()
@@ -28,11 +28,43 @@ window.addEventListener('load', function (e) {
     </div>`)
     })
 
-    // $('.again').on('click', async function (e) {
-    //     const data = await fetch('/admin/all/news/artcle').then(res => res.json())
-    //     const topNew = data.find(news => {
-    //         return news
+
+
+
+
+    // $(function () {
+
+    //     $('.load-more').on('click', function () {
+
     //     })
-    //     console.log(topNew);
-    // })
+
+    //     // $('.load-more').on('click', function() {
+    //     //     const btn = $(this)
+    //     //     const loader = btn.find('span')
+    //     //     $.ajax({
+    //     //         url: '/admin/article/again',
+    //     //         type: 'GET',
+    //     //         beforeSend: function() {
+    //     //             btn.attr('disabled', true)
+    //     //             loader.addClass('d-inline-block')
+    //     //         },
+    //     //         success: function(response) {
+    //     //             setTimeout(() => {
+    //     //                 loader.removeClass('d-inline-block')
+    //     //                 btn.attr('disabled', false)
+    //     //                 console.log(response);
+    //     //             }, 600);
+    //     //         },
+    //     //         error: function() {
+    //     //             alert('Error!!!')
+    //     //             loader.removeClass('d-inline-block')
+    //     //             btn.attr('disabled', false)
+    //     //         }
+    //     //     })
+    //     // })
+    // });
+
+
+
+
 });
